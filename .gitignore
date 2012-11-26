@@ -1,0 +1,40 @@
+.DS_Store
+config.inc.php
+files
+.project
+.settings
+.buildpath
+.htaccess
+*.patch
+
+#Misc Files
+bug6896_single-day-conferences-display-only-start-date.diff
+classes/schedConf/SchedConf.inc.php-2012-10-24
+classes/schedConf/SchedConf.inc.php~
+classes/security/RoleDAOPrior to changeMay31.inc.php
+classes/submission/director/DirectorSubmissionDAO.inc.php-prior changes June 14-2010
+classes/submission/form/ReviewFormResponseForm prior to change Sept27-2010.inc.php
+classes/submission/trackDirector/TrackDirectorAction Prior to change Sept 1 2010.inc.php
+classes/submission/trackDirector/TrackDirectorSubmissionDAO prior to change sept30-2010.inc.php
+config.inc.php-2012-10-24
+config.inc.php.doana
+config.inc.php~
+config.incPrior to change June 14-2010.php
+locale/en_US/locale pre changes May13,2010.xml
+locale/en_US/prior to changes may20-2010/
+pages/comment/CommentHandler.inc.php-Prior to changes July16-2010
+pages/manager/PluginManagementHandler prior to security update July 30 2010.inc.php
+plugins/blocks/fontSize/FontSizeBlockPlugin prior to aug 9,2010.inc.php
+plugins/blocks/languageToggle/block prior to change Aug16-2010.tpl
+templates/common/navbar prior to changes May20-2010.tpl
+templates/common/navbarPrior to ChangeMay20-2010.tpl
+templates/common/navbarPriortoChangeJune3-2010.tpl
+templates/director/schedulingQueue prior to change aug16-2010.tpl
+templates/director/submissions prior to change aug16-2010.tpl
+templates/paper/headerPriorToChangeAug9-2010.tpl
+templates/paper/paper prior to change july 26.tpl
+templates/schedConf/indexPriorChangesMadeMay20-2010.tpl
+templates/schedConf/papers prior to change aug16-2010.tpl
+templates/trackDirector/index prior to change aug16-2010.tpl
+~config.inc.php prior to ssl
+
