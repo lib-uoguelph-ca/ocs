@@ -73,19 +73,8 @@ class InstallTool extends CommandLineTool {
 					printf("----------------------------------------\n");
 			}
 
-			if ($this->params['manualInstall']) {
-				if (count($installer->getSQL()) > 0) {
-					printf("\nSQL\n");
-					printf("----------------------------------------\n");
-					foreach ($installer->getSQL() as $sql) {
-						printf("%s\n\n", $sql);
-					}
-				}
-
-			} else {
-				$newVersion =& $installer->getNewVersion();
-				printf("Successfully installed version %s\n", $newVersion->getVersionString());
-			}
+			$newVersion =& $installer->getNewVersion();
+			printf("Successfully installed version %s\n", $newVersion->getVersionString());
 
 		} else {
 			printf("ERROR: Installation failed: %s\n", $installer->getErrorString());
@@ -128,7 +117,7 @@ class InstallTool extends CommandLineTool {
 		$this->readParam('adminPassword', 'user.password');
 		printf("\n");
 		do {
-			$this->readParam('adminPassword2', 'user.register.repeatPassword');
+			$this->readParam('adminPassword2', 'user.account.repeatPassword');
 			printf("\n");
 		} while ($this->params['adminPassword'] != $this->params['adminPassword2']);
 		@`/bin/stty echo`;
@@ -146,7 +135,6 @@ class InstallTool extends CommandLineTool {
 		// Miscellaneous Settings
 		$this->printTitle('installer.miscSettings');
 		$this->readParam('oaiRepositoryId', 'installer.oaiRepositoryId');
-		$this->readParamBoolean('manualInstall', 'installer.manualInstall');
 
 		printf("\n*** ");
 	}

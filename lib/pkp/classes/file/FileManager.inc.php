@@ -386,6 +386,7 @@ class FileManager {
 				return '.png';
 			case 'image/vnd.microsoft.icon':
 			case 'image/x-icon':
+			case 'image/x-ico':
 			case 'image/ico':
 				return '.ico';
 			case 'application/x-shockwave-flash':
@@ -393,7 +394,6 @@ class FileManager {
 			case 'video/x-flv':
 			case 'application/x-flash-video':
 			case 'flv-application/octet-stream':
-			case 'application/octet-stream':
 				return '.flv';
 			case 'audio/mpeg':
 				return '.mp3';
@@ -476,7 +476,7 @@ class FileManager {
 		}
 
 		// FIXME Check for evil
-		if (!isset($fileExtension) || strstr($fileExtension, 'php') || strlen($fileExtension) > 6 || !preg_match('/^\w+$/', $fileExtension)) {
+		if (!isset($fileExtension) || stristr($fileExtension, 'php') || strlen($fileExtension) > 6 || !preg_match('/^\w+$/', $fileExtension)) {
 			$fileExtension = 'txt';
 		}
 

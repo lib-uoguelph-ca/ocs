@@ -8,10 +8,7 @@
  *
  *}
 <div id="breadcrumb">
-	{* Remove the Home link from the breadcrubms for all conferences *}
-	{*
 	<a href="{url context=$homeContext page="index"}">{translate key="navigation.home"}</a> &gt;
-	*}
 	{foreach from=$pageHierarchy item=hierarchyLink}
 		<a href="{$hierarchyLink[0]|escape}" class="hierarchyLink">{if not $hierarchyLink[2]}{translate key=$hierarchyLink[1]}{else}{$hierarchyLink[1]|escape}{/if}</a> &gt;
 	{/foreach}

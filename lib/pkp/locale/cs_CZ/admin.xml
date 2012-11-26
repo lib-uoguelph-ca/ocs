@@ -8,11 +8,13 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the cs_CZ (Czech) locale.
+  * Translated by František Chmelik, frantisek.chmelik 'at' upol.cz
+  * Corrections, migration to the OCS 2.3.x by Ivo Vesely and Petr Petyovsky (petyovsky 'at' feec.vutbr.cz)
   *
-  * $Id$
+  * $Id: admin.xml 218 2011-06-21 20:42:56Z petyovsky $
   -->
 
-<locale name="cs_CZ" full_name = "Czech">
+<locale name="cs_CZ" full_name = "Čeština">
 	<message key="admin.adminFunctions">Administrátorské funkce</message>
 	<message key="admin.auth.confirmDelete">Jste si jistý, že chcete trvale odstranit tento zdroj ověření?</message>
 	<message key="admin.auth.create">Vytvořit zdroj ověření</message>

@@ -8,14 +8,17 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the cs_CZ (Czech) locale.
+  * Translated by František Chmelik, frantisek.chmelik 'at' upol.cz
+  * Corrections, migration to the OCS 2.3.x by Ivo Vesely and Petr Petyovsky (petyovsky 'at' feec.vutbr.cz)
   *
-  * $Id$
+  * $Id: reader.xml 218 2011-06-21 20:42:56Z petyovsky $
   -->
 
-<locale name="cs_CZ" full_name = "Czech">
+<locale name="cs_CZ" full_name = "Čeština">
 	<message key="comments.anonymous">Anonymní uživatel</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Tělo</message>
+	<message key="comments.titleRequired">Je vyžadován název komentáře.</message>
 	<message key="comments.confirmDeleteChildren">Smazáním tohoto komentáře smažete také všechny odpovědi na něj. Jste si jistý, že to chcete udělat?</message>
 	<message key="comments.delete">Smazat tento komentář</message>
 	<message key="comments.email">E-mail odesílatele</message>

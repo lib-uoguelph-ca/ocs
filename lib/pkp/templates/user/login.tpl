@@ -35,7 +35,7 @@
 {if $implicitAuth}
 	<a id="implicitAuthLogin" href="{url page="login" op="implicitAuthLogin"}">Login</a>
 {else}
-	<form id="signinForm" name="login" method="post" action="{url page="login" op="signIn"}">
+	<form id="signinForm" name="login" method="post" action="{$loginUrl}">
 {/if}
 
 <input type="hidden" name="source" value="{$source|escape}" />
@@ -67,10 +67,6 @@
 		&#187; <a href="{url page="user" op=$registerOp}">{translate key=$registerLocaleKey}</a><br />
 		&#187; <a href="{url page="login" op="lostPassword"}">{translate key="user.login.forgotPassword"}</a>
 	</p>
-	{* Add a login disclaimer for CUExpo *}
-	{if preg_match("/public\/conferences\/1/", $publicFilesDir)}
-	<p id ="log-in-disclaimer">The contents of this web site are open and available for all to view. If you're interested in submitting a proposal for the conference, helping review submissions or registering for the conference, please create a username and password to log into the website.</p>
-	{/if}
 {/if}{* !$implicitAuth *}
 
 <script type="text/javascript">
