@@ -3,7 +3,7 @@
 /**
  * @file PaperGalley.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PaperGalley
@@ -103,8 +103,8 @@ class PaperGalley extends PaperFile {
 	 */
 	function getGalleyLabel() {
 		$label = $this->getLabel();
-		if ($this->getLocale() != Locale::getLocale()) {
-			$locales = Locale::getAllLocales();
+		if ($this->getLocale() != AppLocale::getLocale()) {
+			$locales = AppLocale::getAllLocales();
 			$label .= ' (' . $locales[$this->getLocale()] . ')';
 		}
 		return $label;

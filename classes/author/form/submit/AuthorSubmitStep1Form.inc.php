@@ -3,7 +3,7 @@
 /**
  * @file AuthorSubmitStep1Form.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AuthorSubmitStep1Form
@@ -56,7 +56,7 @@ class AuthorSubmitStep1Form extends AuthorSubmitForm {
 			$roleDao->roleExists($conference->getId(), 0, $user->getId(), ROLE_ID_DIRECTOR) ||
 			$roleDao->roleExists($conference->getId(), 0, $user->getId(), ROLE_ID_TRACK_DIRECTOR);
 
-		$templateMgr->assign('trackOptions', array('0' => Locale::translate('author.submit.selectTrack')) + $trackDao->getTrackTitles($schedConf->getId(), !$isDirector));
+		$templateMgr->assign('trackOptions', array('0' => __('author.submit.selectTrack')) + $trackDao->getTrackTitles($schedConf->getId(), !$isDirector));
 
 		$paperTypeDao =& DAORegistry::getDAO('PaperTypeDAO');
 		$sessionTypes = $paperTypeDao->getPaperTypes($schedConf->getId());

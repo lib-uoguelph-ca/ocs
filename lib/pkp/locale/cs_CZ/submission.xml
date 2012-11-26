@@ -32,7 +32,7 @@
 	<message key="submission.comments.noComments">Žádné komentáře</message>
 	<message key="submission.comments.noReviews">Žádné recenze</message>
 	<message key="submission.comments.review">Recenze</message>
-	<message key="submission.comments.sendDecisionToReviewers">Poslat recenzentům editorovo rozhodnutí</message>
+	<message key="submission.comments.sendDecisionToReviewers">Poslat recenzentům rozhodnutí editora</message>
 	<message key="submission.comments.subject">Předmět</message>
 	<message key="submission.complete">Dokončit</message>
 	<message key="submission.done">Hotovo</message>
@@ -42,12 +42,12 @@
 	<message key="submission.editMetadata">Editovat metadata</message>
 	<message key="submission.email.backToEmailLog">Zpět k protokolu emailů</message>
 	<message key="submission.email.confirmClearLog">Jste si jistý, že chcete vyčistit protokol emailů pro tento příspěvek?</message>
-	<message key="submission.email.confirmDeleteLogEntry">Jste si jistý, že chete smazat tento záznam protokolu emailů?</message>
+	<message key="submission.email.confirmDeleteLogEntry">Jste si jistý, že chcete smazat tento záznam protokolu emailů?</message>
 	<message key="submission.email.deleteLogEntry">Smazat záznam protokolu</message>
 	<message key="submission.emailLog">Log e-mailů</message>
 	<message key="submission.event.backToEventLog">Zpět k protokolu událostí</message>
 	<message key="submission.event.confirmClearLog">Jste si jistý, že chcete vyčistit protokol událostí pro tento příspěvek?</message>
-	<message key="submission.event.confirmDeleteLogEntry">Jste si jistý, že chete smazat tento záznam protokolu událostí?</message>
+	<message key="submission.event.confirmDeleteLogEntry">Jste si jistý, že chcete smazat tento záznam protokolu událostí?</message>
 	<message key="submission.event.deleteLogEntry">Smazat záznam protokolu</message>
 	<message key="submission.event.general.metadataUpdated">Metadata příspěvku aktualizována</message>
 	<message key="submission.event.general.suppFileUpdated">Soubor příspěvku aktualizován</message>
@@ -64,7 +64,7 @@
 	<message key="submission.event.reviewer.reviewRecommendation">Soubor s recenzním doporučením</message>
 	<message key="submission.event.reviewer.reviewReinitiated">Přidělená recenze znovu zahájena</message>
 	<message key="submission.event.reviewer.reviewResubmitted">Recenze znovu odeslána</message>
-	<message key="submission.event.reviewer.reviewRevision">Recenzetův soubor s recenzí aktualizován</message>
+	<message key="submission.event.reviewer.reviewRevision">Recenzentův soubor s recenzí aktualizován</message>
 	<message key="submission.files">Soubory</message>
 	<message key="submission.galley">Sazebnice</message>
 	<message key="submission.history.clearLog">Vyčistit protokol</message>
@@ -131,10 +131,11 @@
 	<message key="submission.page.history">#{$id} Historie</message>
 	<message key="submission.page.review">#{$id} Recenze</message>
 	<message key="submission.page.summary">#{$id} Souhrn</message>
+	<message key="submission.page.citations">#{$id} Citace</message>
 	<message key="submission.peerReview"><![CDATA[Recenzní&nbsp;řízení]]></message>
 	<message key="submission.recommendation">Doporučení</message>
 	<message key="submission.rejected">Zamítnut</message>
-	<message key="submission.request">Vyžádat</message>
+	<message key="submission.request">Požádat</message>
 	<message key="submission.response">Odpověď</message>
 	<message key="submission.restrictions">Omezení</message>
 	<message key="submission.reviewMetadata">Zkontrolovat metadata</message>
@@ -161,13 +162,19 @@
 	<message key="submission.summary">Souhrn</message>
 	<message key="submission.supplementaryFiles">Doplňkové soubory</message>
 	<message key="submission.supportingAgencies">Podporující instituce (granty)</message>
+	<message key="submission.currentAgencies">Současné agentury</message>
+	<message key="submission.indexingInformation">Informace o indexování</message>
 	<message key="submission.titleAndAbstract">Název a abstrakt</message>
 	<message key="submission.underway">Zpracovává se</message>
 	<message key="submission.uploadFileTo">Nahrát soubor k</message>
 	<message key="submission.viewMetadata">Zobrazit metadata</message>
 	<message key="submission.views">Zobrazení</message>
-	
+	<message key="submission.uploadSuccessful">Váš soubor byl nahrán</message>
+	<message key="submission.uploadSuccessfulContinue">Váš soubor byl nahrán. Pokračujte na úpravu metadat souboru.</message>
+	<message key="submission.loadMessage">Prosím čekejte, Váš soubor je nahráván na server.</message>
+	<message key="submission.fileDetails">Detaily souboru</message>
+	<message key="submission.nameRequired">Prosím, vyplňte položku jméno.</message>
+
 	<!-- Author Submission -->
 	<message key="author.submit.submissionCitations">Uveďte formátovaný seznam referencí pro práce citované v tomto příspěvku.</message>
-	
 </locale>

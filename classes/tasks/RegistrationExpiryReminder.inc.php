@@ -7,7 +7,7 @@
 /**
  * @file RegistrationExpiryReminder.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RegistrationExpiryReminder
@@ -55,13 +55,13 @@ class RegistrationExpiryReminder extends ScheduledTask {
 			$registrationContactSignature .= "\n" . $registrationMailingAddress;
 		}
 		if ($registrationPhone != '') {
-			$registrationContactSignature .= "\n" . Locale::Translate('user.phone') . ': ' . $registrationPhone;
+			$registrationContactSignature .= "\n" . AppLocale::Translate('user.phone') . ': ' . $registrationPhone;
 		}
 		if ($registrationFax != '') {
-			$registrationContactSignature .= "\n" . Locale::Translate('user.fax') . ': ' . $registrationFax;
+			$registrationContactSignature .= "\n" . AppLocale::Translate('user.fax') . ': ' . $registrationFax;
 		}
 
-		$registrationContactSignature .= "\n" . Locale::Translate('user.email') . ': ' . $registrationEmail;
+		$registrationContactSignature .= "\n" . AppLocale::Translate('user.email') . ': ' . $registrationEmail;
 
 		$paramArray = array(
 			'registrantName' => $user->getFullName(),
@@ -74,7 +74,7 @@ class RegistrationExpiryReminder extends ScheduledTask {
 		);
 
 		import('mail.MailTemplate');
-		$mail = new MailTemplate($emailKey);
+		$mail = new MailTemplate($emailKey, $conference->getPrimaryLocale());
 		$mail->setFrom($registrationEmail, $registrationName);
 		$mail->addRecipient($user->getEmail(), $user->getFullName());
 		$mail->setSubject($mail->getSubject($conference->getPrimaryLocale()));

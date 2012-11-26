@@ -3,7 +3,7 @@
 /**
  * @file PaperHTMLGalley.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PaperHTMLGalley
@@ -63,7 +63,7 @@ class PaperHTMLGalley extends PaperGalley {
 		}
 
 		// Perform replacement for ocs://... URLs
-		$contents = String::regexp_replace_callback(
+		$contents = preg_replace_callback(
 			'/(<[^<>]*")[Oo][Jj][Ss]:\/\/([^"]+)("[^<>]*>)/',
 			array(&$this, '_handleOcsUrl'),
 			$contents

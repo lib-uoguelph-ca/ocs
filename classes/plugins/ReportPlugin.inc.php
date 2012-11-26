@@ -3,7 +3,7 @@
 /**
  * @file ReportPlugin.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReportPlugin
@@ -97,7 +97,7 @@ class ReportPlugin extends Plugin {
 		if ($schedConf) return array(
 			array(
 				'reports',
-				Locale::translate('manager.statistics.reports')
+				__('manager.statistics.reports')
 			)
 		);
 		else return array();

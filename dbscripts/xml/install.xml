@@ -4,13 +4,13 @@
 <!--
   * install.xml
   *
-  * Copyright (c) 2000-2011 John Willinsky
+  * Copyright (c) 2000-2012 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Installation descriptor file.
   -->
 
-<install version="2.3.4">
+<install version="2.3.5">
 	<code function="createDirectories"/>
 	<code function="createDatabase"/>
 

@@ -3,7 +3,7 @@
 /**
  * @file PublishedPaper.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PublishedPaper
@@ -155,11 +155,11 @@ class PublishedPaper extends Paper {
 	 * @return array PaperGalley
 	 */
 	function &getLocalizedGalleys() {
-		$primaryLocale = Locale::getPrimaryLocale();
+		$primaryLocale = AppLocale::getPrimaryLocale();
 
 		$allGalleys =& $this->getData('galleys');
 		$galleys = array();
-		foreach (array(Locale::getLocale(), Locale::getPrimaryLocale()) as $tryLocale) {
+		foreach (array(AppLocale::getLocale(), AppLocale::getPrimaryLocale()) as $tryLocale) {
 			foreach (array_keys($allGalleys) as $key) {
 				if ($allGalleys[$key]->getLocale() == $tryLocale) {
 					$galleys[] =& $allGalleys[$key];

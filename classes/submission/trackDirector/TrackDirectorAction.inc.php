@@ -3,7 +3,7 @@
 /**
  * @file TrackDirectorAction.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class TrackDirectorAction
@@ -13,7 +13,6 @@
  *
  */
 
-// $Id$
 import('submission.common.Action');
 
 class TrackDirectorAction extends Action {
@@ -88,7 +87,7 @@ class TrackDirectorAction extends Action {
 			// Add log
 			import('paper.log.PaperLog');
 			import('paper.log.PaperEventLogEntry');
-			Locale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_OCS_DIRECTOR));
+			AppLocale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_OCS_DIRECTOR));
 			PaperLog::logEvent(
 				$trackDirectorSubmission->getPaperId(),
 				PAPER_LOG_DIRECTOR_DECISION,
@@ -98,7 +97,7 @@ class TrackDirectorAction extends Action {
 				array(
 					'directorName' => $user->getFullName(),
 					'paperId' => $trackDirectorSubmission->getPaperId(),
-					'decision' => Locale::translate($decisions[$decision]),
+					'decision' => __($decisions[$decision]),
 					'round' => ($stage == REVIEW_STAGE_ABSTRACT?'submission.abstractReview':'submission.paperReview')
 				)
 			);
@@ -315,7 +314,7 @@ class TrackDirectorAction extends Action {
 						// Key lifetime is the typical review period plus four weeks
 						if ($schedConf->getSetting('reviewDeadlineType') == REVIEW_DEADLINE_TYPE_ABSOLUTE) {
 							// Get number of days from now until review deadline date
-							$reviewDeadlineDate = strtotime($schedConf->getSetting('numWeeksPerReviewAbsolute'));
+							$reviewDeadlineDate = $schedConf->getSetting('numWeeksPerReviewAbsolute');
 							$daysDiff = ($reviewDeadlineDate - strtotime(date("Y-m-d"))) / (60 * 60 * 24);
 							$keyLifetime = (round($daysDiff / 7) + 4) * 7;
 						} elseif ($schedConf->getSetting('reviewDeadlineType') == REVIEW_DEADLINE_TYPE_RELATIVE) {
@@ -484,7 +483,7 @@ class TrackDirectorAction extends Action {
 				// Key lifetime is the typical review period plus four weeks
 				if ($schedConf->getSetting('reviewDeadlineType') == REVIEW_DEADLINE_TYPE_ABSOLUTE) {
 					// Get number of days from now until review deadline date
-					$reviewDeadlineDate = strtotime($schedConf->getSetting('numWeeksPerReviewAbsolute'));
+					$reviewDeadlineDate = $schedConf->getSetting('numWeeksPerReviewAbsolute');
 					$daysDiff = ($reviewDeadlineDate - strtotime(date("Y-m-d"))) / (60 * 60 * 24);
 					$keyLifetime = (round($daysDiff / 7) + 4) * 7;
 				} elseif ($schedConf->getSetting('reviewDeadlineType') == REVIEW_DEADLINE_TYPE_RELATIVE) {
@@ -894,7 +893,7 @@ class TrackDirectorAction extends Action {
 						$galley = new PaperGalley();
 					}
 					$galley->setPaperId($trackDirectorSubmission->getPaperId());
-					$galley->setLocale(Locale::getLocale());
+					$galley->setLocale(AppLocale::getLocale());
 					$galley->setFileId($fileId);
 					if ($galley->isHTMLGalley()) {
 						$galley->setLabel('HTML');
@@ -905,7 +904,7 @@ class TrackDirectorAction extends Action {
 					} else if (strstr($fileType, 'xml')) {
 						$galley->setLabel('XML');
 					} else {
-						$galley->setLabel(Locale::translate('common.untitled'));
+						$galley->setLabel(__('common.untitled'));
 					}
 					$paperGalleyDao->insertGalley($galley);
 				}
@@ -1537,7 +1536,7 @@ import('file.PaperFileManager');
 							
 							if ($paperComments) {
 								$body .= "------------------------------------------------------\n";
-								$body .= Locale::translate('submission.comments.importPeerReviews.reviewerLetter', array('reviewerLetter' => chr(ord('A') + $reviewIndexes[$reviewAssignment->getId()]))) . "\n";
+								$body .= __('submission.comments.importPeerReviews.reviewerLetter', array('reviewerLetter' => chr(ord('A') + $reviewIndexes[$reviewAssignment->getId()]))) . "\n";
 								if (is_array($paperComments)) {
 									foreach ($paperComments as $comment) {
 										// If the comment is viewable by the author, then add the comment.
@@ -1561,7 +1560,7 @@ import('file.PaperFileManager');
 								$reviewFormElements =& $reviewFormElementDao->getReviewFormElements($reviewFormId);
 								if (!$paperComments) {
 									$body .= "------------------------------------------------------\n";
-									$body .= Locale::translate('submission.comments.importPeerReviews.reviewerLetter', array('reviewerLetter' => chr(ord('A') + $reviewIndexes[$reviewAssignment->getId()]))) . "\n\n";
+									$body .= __('submission.comments.importPeerReviews.reviewerLetter', array('reviewerLetter' => chr(ord('A') + $reviewIndexes[$reviewAssignment->getId()]))) . "\n\n";
 								}
 								foreach ($reviewFormElements as $reviewFormElement) if ($reviewFormElement->getIncluded()) {
 									$body .= strip_tags($reviewFormElement->getLocalizedQuestion()) . ": \n";
@@ -1626,7 +1625,7 @@ import('file.PaperFileManager');
 
 		$user =& Request::getUser();
 		import('mail.PaperMailTemplate');
-		$email = new PaperMailTemplate($paper, 'SUBMISSION_DECISION_REVIEWERS');
+		$email = new PaperMailTemplate($paper, 'SUBMISSION_DECISION_REVIEWERS', null, null, null, null, true, true);
 
 		if ($send && !$email->hasErrors() && !$inhibitExistingEmail) {
 			HookRegistry::call('TrackDirectorAction::blindCcReviewsToReviewers', array(&$paper, &$reviewAssignments, &$email));

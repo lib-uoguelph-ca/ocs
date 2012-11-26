@@ -3,7 +3,7 @@
 /**
  * @file classes/conference/ConferenceSettingsDAO.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ConferenceSettingsDAO
@@ -239,7 +239,7 @@ class ConferenceSettingsDAO extends SettingsDAO {
 				$this->updateSetting(
 					$conferenceId,
 					$name,
-					$isLocaleField?array(Locale::getLocale() => $value):$value,
+					$isLocaleField?array(AppLocale::getLocale() => $value):$value,
 					$type,
 					$isLocaleField
 				);
@@ -260,8 +260,8 @@ class ConferenceSettingsDAO extends SettingsDAO {
 	function _performLocalizedReplacement($rawInput, $paramArray = array(), $locale = null) {
 		preg_match('{{translate key="([^"]+)"}}', $rawInput, $matches);
 		if ( isset($matches[1]) ) {
-			Locale::requireComponents(array(LOCALE_COMPONENT_OCS_DEFAULT, LOCALE_COMPONENT_OCS_MANAGER), $locale);
-			return Locale::translate($matches[1], $paramArray, $locale);
+			AppLocale::requireComponents(array(LOCALE_COMPONENT_OCS_DEFAULT, LOCALE_COMPONENT_OCS_MANAGER), $locale);
+			return __($matches[1], $paramArray, $locale);
 		}
 
 		return $rawInput;
@@ -346,7 +346,7 @@ class ConferenceSettingsDAO extends SettingsDAO {
 	 * Used internally by conference setting installation code to perform translation function.
 	 */
 	function _installer_regexp_callback($matches) {
-		return Locale::translate($matches[1]);
+		return __($matches[1]);
 	}
 
 }

@@ -156,7 +156,7 @@ class InstallTool extends CommandLineTool {
 	 * @param $title string
 	 */
 	function printTitle($title) {
-		printf("\n%s\n%s\n%s\n", str_repeat('-', 80), Locale::translate($title), str_repeat('-', 80));
+		printf("\n%s\n%s\n%s\n", str_repeat('-', 80), __($title), str_repeat('-', 80));
 	}
 
 	/**
@@ -181,9 +181,9 @@ class InstallTool extends CommandLineTool {
 	function readParam($name, $prompt, $defaultValue = null) {
 		do {
 			if (isset($defaultValue)) {
-				printf("%s (%s): ", Locale::translate($prompt), $defaultValue !== '' ? $defaultValue : Locale::translate('common.none'));
+				printf("%s (%s): ", __($prompt), $defaultValue !== '' ? $defaultValue : __('common.none'));
 			} else {
-				printf("%s: ", Locale::translate($prompt));
+				printf("%s: ", __($prompt));
 			}
 
 			$value = $this->readInput();
@@ -203,11 +203,11 @@ class InstallTool extends CommandLineTool {
 	 */
 	function readParamBoolean($name, $prompt, $default = 'N') {
 		if ($default == 'N') {
-			printf("%s [y/N] ", Locale::translate($prompt));
+			printf("%s [y/N] ", __($prompt));
 			$value = $this->readInput();
 			$this->params[$name] = (int)(strtolower(substr(trim($value), 0, 1)) == 'y');
 		} else {
-			printf("%s [Y/n] ", Locale::translate($prompt));
+			printf("%s [Y/n] ", __($prompt));
 			$value = $this->readInput();
 			$this->params[$name] = (int)(strtolower(substr(trim($value), 0, 1)) != 'n');
 		}
@@ -222,17 +222,17 @@ class InstallTool extends CommandLineTool {
 	 */
 	function readParamOptions($name, $prompt, $options, $defaultValue = null, $allowMultiple = false) {
 		do {
-			printf("%s\n", Locale::translate($prompt));
+			printf("%s\n", __($prompt));
 			foreach ($options as $k => $v) {
 				printf("  %-10s %s\n", '[' . $k . ']', $v);
 			}
 			if ($allowMultiple) {
-				printf("  (%s)\n", Locale::translate('installer.form.separateMultiple'));
+				printf("  (%s)\n", __('installer.form.separateMultiple'));
 			}
 			if (isset($defaultValue)) {
-				printf("%s (%s): ", Locale::translate('common.select'), $defaultValue !== '' ? $defaultValue : Locale::translate('common.none'));
+				printf("%s (%s): ", __('common.select'), $defaultValue !== '' ? $defaultValue : __('common.none'));
 			} else {
-				printf("%s: ", Locale::translate('common.select'));
+				printf("%s: ", __('common.select'));
 			}
 
 			$value = $this->readInput();

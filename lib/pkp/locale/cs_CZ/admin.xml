@@ -61,7 +61,7 @@
 	<message key="admin.settings.oaiRegistration">Zaregistrovat stránku pro indexaci (shromažďování metadat)</message>
 	<message key="admin.settings.passwordCharacters">znaky</message>
 	<message key="admin.settings.siteLanguage">Jazyk stránky</message>
-	<message key="admin.settings.siteStyleSheetInvalid">Neplatný formát stylu stránky.Podporovaný formát je .css.</message>
+	<message key="admin.settings.siteStyleSheetInvalid">Neplatný formát stylu stránky. Podporovaný formát je .css.</message>
 	<message key="admin.settings.siteStyleSheet">Styl stránky</message>
 	<message key="admin.settings.siteTitle">Název stránky</message>
 	<message key="admin.siteAdmin">Administrace internetové stránky</message>

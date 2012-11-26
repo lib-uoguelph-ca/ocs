@@ -3,7 +3,7 @@
 /**
  * @file UpgradeForm.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UpgradeForm
@@ -90,7 +90,7 @@ class UpgradeForm extends Form {
 	 */
 	function dbInstallError($errorMsg) {
 		$templateMgr =& TemplateManager::getManager();
-		$templateMgr->assign(array('isInstallError' => true, 'dbErrorMsg' => empty($errorMsg) ? Locale::translate('common.error.databaseErrorUnknown') : $errorMsg));
+		$templateMgr->assign(array('isInstallError' => true, 'dbErrorMsg' => empty($errorMsg) ? __('common.error.databaseErrorUnknown') : $errorMsg));
 		$this->display();
 	}
 

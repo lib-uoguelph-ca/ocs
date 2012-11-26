@@ -7,7 +7,7 @@
 /**
  * @file CreateAccountForm.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CreateAccountForm
@@ -252,7 +252,7 @@ class CreateAccountForm extends Form {
 
 			$locales = array();
 			foreach ($this->getData('userLocales') as $locale) {
-				if (Locale::isLocaleValid($locale) && in_array($locale, $availableLocales)) {
+				if (AppLocale::isLocaleValid($locale) && in_array($locale, $availableLocales)) {
 					array_push($locales, $locale);
 				}
 			}
@@ -270,7 +270,7 @@ class CreateAccountForm extends Form {
 				// The account should be created in a disabled
 				// state.
 				$user->setDisabled(true);
-				$user->setDisabledReason(Locale::translate('user.login.accountNotValidated'));
+				$user->setDisabledReason(__('user.login.accountNotValidated'));
 			}
 
 			$userDao =& DAORegistry::getDAO('UserDAO');

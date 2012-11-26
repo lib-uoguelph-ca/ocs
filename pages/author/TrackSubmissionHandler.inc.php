@@ -3,7 +3,7 @@
 /**
  * @file TrackSubmissionHandler.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class TrackSubmissionHandler
@@ -147,7 +147,7 @@ class TrackSubmissionHandler extends AuthorHandler {
 		$this->validate($paperId);
 		$authorSubmission =& $this->submission;
 		$this->setupTemplate(true, $paperId);
-		Locale::requireComponents(array(LOCALE_COMPONENT_OCS_DIRECTOR)); // FIXME?
+		AppLocale::requireComponents(array(LOCALE_COMPONENT_OCS_DIRECTOR)); // FIXME?
 
 		$stage = (isset($args[1]) ? (int) $args[1] : 1);
 		$reviewMode = $authorSubmission->getReviewMode();

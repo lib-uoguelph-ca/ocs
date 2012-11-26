@@ -7,7 +7,7 @@
 /**
  * @file PaperSearch.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PaperSearch
@@ -58,9 +58,9 @@ class PaperSearch {
 		$return = array('+' => array(), '' => array(), '-' => array());
 		$postBool = $preBool = '';
 
-		$notOperator = String::strtolower(Locale::translate('search.operator.not'));
-		$andOperator = String::strtolower(Locale::translate('search.operator.and'));
-		$orOperator = String::strtolower(Locale::translate('search.operator.or'));
+		$notOperator = String::strtolower(__('search.operator.not'));
+		$andOperator = String::strtolower(__('search.operator.and'));
+		$orOperator = String::strtolower(__('search.operator.or'));
 		while ($pos < $total) {
 			if (!empty($signTokens[$pos])) $sign = $signTokens[$pos];
 			else if (empty($sign)) $sign = '+';

@@ -3,7 +3,7 @@
 /**
  * @file RegistrationTypeDAO.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RegistrationTypeDAO
@@ -71,8 +71,8 @@ class RegistrationTypeDAO extends DAO {
 		$result =& $this->retrieve(
 			'SELECT COALESCE(l.setting_value, p.setting_value) FROM registration_type_settings l LEFT JOIN registration_type_settings p ON (p.type_id = ? AND p.setting_name = ? AND p.locale = ?) WHERE l.type_id = ? AND l.setting_name = ? AND l.locale = ?', 
 			array(
-				$typeId, 'name', Locale::getLocale(),
-				$typeId, 'name', Locale::getPrimaryLocale()
+				$typeId, 'name', AppLocale::getLocale(),
+				$typeId, 'name', AppLocale::getPrimaryLocale()
 			)
 		);
 
@@ -235,7 +235,7 @@ class RegistrationTypeDAO extends DAO {
 		$registrationType->setCurrencyCodeAlpha($row['currency_code_alpha']);
 		$registrationType->setOpeningDate($this->dateFromDB($row['opening_date']));
 		$registrationType->setClosingDate($this->datetimeFromDB($row['closing_date']));
-		$registrationType->setExpiryDate($this->dateFromDB($row['expiry_date']));
+		$registrationType->setExpiryDate($this->datetimeFromDB($row['expiry_date']));
 		$registrationType->setAccess($row['access']);
 		$registrationType->setInstitutional($row['institutional']);
 		$registrationType->setMembership($row['membership']);

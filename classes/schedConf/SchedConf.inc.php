@@ -7,7 +7,7 @@
 /**
  * @file SchedConf.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SchedConf
@@ -267,10 +267,10 @@ class SchedConf extends DataObject {
 	 * @return mixed
 	 */
 	function &getLocalizedSetting($name) {
-		$returner = $this->getSetting($name, Locale::getLocale());
+		$returner = $this->getSetting($name, AppLocale::getLocale());
 		if ($returner === null) {
 			unset($returner);
-			$returner = $this->getSetting($name, Locale::getPrimaryLocale());
+			$returner = $this->getSetting($name, AppLocale::getPrimaryLocale());
 		}
 		return $returner;
 	}

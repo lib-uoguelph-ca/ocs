@@ -3,7 +3,7 @@
 /**
  * @file RegistrationTypeForm.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RegistrationTypeForm
@@ -40,9 +40,9 @@ class RegistrationTypeForm extends Form {
 		$this->registrationTypeDao =& DAORegistry::getDAO('RegistrationTypeDAO');
 
 		$this->validAccessTypes = array (
-			REGISTRATION_TYPE_ACCESS_ONLINE => Locale::translate('manager.registrationTypes.access.online'),
-			REGISTRATION_TYPE_ACCESS_PHYSICAL => Locale::translate('manager.registrationTypes.access.physical'),
-			REGISTRATION_TYPE_ACCESS_BOTH => Locale::translate('manager.registrationTypes.access.both')
+			REGISTRATION_TYPE_ACCESS_ONLINE => __('manager.registrationTypes.access.online'),
+			REGISTRATION_TYPE_ACCESS_PHYSICAL => __('manager.registrationTypes.access.physical'),
+			REGISTRATION_TYPE_ACCESS_BOTH => __('manager.registrationTypes.access.both')
 		);
 
 		$currencyDao =& DAORegistry::getDAO('CurrencyDAO');

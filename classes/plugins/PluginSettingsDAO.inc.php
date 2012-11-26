@@ -3,7 +3,7 @@
 /**
  * @file PluginSettingsDAO.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PluginSettingsDAO
@@ -282,7 +282,7 @@ class PluginSettingsDAO extends DAO {
  * Used internally by plugin setting installation code to perform translation function.
  */
 function _installer_plugin_regexp_callback($matches) {
-	return Locale::translate($matches[1]);
+	return __($matches[1]);
 }
 
 ?>

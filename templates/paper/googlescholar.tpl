@@ -1,7 +1,7 @@
 {**
  * googlescholar.tpl
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Metadata elements for papers based on preferred types for Google Scholar
@@ -13,7 +13,7 @@
 {foreach name="authors" from=$paper->getAuthors() item=author}
 	<meta name="citation_author" content="{$author->getFirstName()|escape}{if $author->getMiddleName() != ""} {$author->getMiddleName()|escape}{/if} {$author->getLastName()|escape}"/>
 {if $author->getAffiliation() != ""}
-	<meta name="citation_author_affiliation" content="{$author->getAffiliation()|strip_tags|escape}"/>
+	<meta name="citation_author_institution" content="{$author->getAffiliation()|strip_tags|escape}"/>
 {/if}
 {/foreach}
 	<meta name="citation_title" content="{$paper->getLocalizedTitle()|strip_tags|escape}"/>

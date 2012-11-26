@@ -3,7 +3,7 @@
 /**
  * @file RegistrationType.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RegistrationType
@@ -254,17 +254,17 @@ class RegistrationType extends DataObject {
 		$yearsMonths = '';
 
 		if ($years == 1) {
-			$yearsMonths = '1 ' . Locale::Translate('manager.registrationTypes.year');
+			$yearsMonths = '1 ' . AppLocale::Translate('manager.registrationTypes.year');
 		} elseif ($years > 1) {
-			$yearsMonths = $years . ' ' . Locale::Translate('manager.registrationTypes.years');
+			$yearsMonths = $years . ' ' . AppLocale::Translate('manager.registrationTypes.years');
 		}
 
 		if ($months == 1) {
 			$yearsMonths .= $yearsMonths == ''  ? '1 ' : ' 1 ';
-			$yearsMonths .= Locale::Translate('manager.registrationTypes.month'); 
+			$yearsMonths .= AppLocale::Translate('manager.registrationTypes.month'); 
 		} elseif ($months > 1){
 			$yearsMonths .= $yearsMonths == ''  ? $months . ' ' : ' ' . $months . ' ';
-			$yearsMonths .= Locale::Translate('manager.registrationTypes.months');
+			$yearsMonths .= AppLocale::Translate('manager.registrationTypes.months');
 		}
 
 		return $yearsMonths;

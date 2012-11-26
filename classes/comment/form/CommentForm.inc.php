@@ -7,7 +7,7 @@
 /**
  * @file CommentForm.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CommentForm
@@ -91,7 +91,7 @@ class CommentForm extends Form {
 			if ($user) {
 				$this->_data['posterName'] = $user->getFullName();
 				$this->_data['posterEmail'] = $user->getEmail();
-				$this->_data['title'] = ($comment?Locale::translate('common.re') . ' ' . $comment->getTitle():'');
+				$this->_data['title'] = ($comment?__('common.re') . ' ' . $comment->getTitle():'');
 			}
 		}
 	}

@@ -3,7 +3,7 @@
 /**
  * @file LoginHandler.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class LoginHandler
@@ -116,7 +116,7 @@ class LoginHandler extends PKPLoginHandler {
 	 * Configure the template for display.
 	 */
 	function setupTemplate() {
-		Locale::requireComponents(array(LOCALE_COMPONENT_OCS_MANAGER, LOCALE_COMPONENT_PKP_MANAGER));
+		AppLocale::requireComponents(array(LOCALE_COMPONENT_OCS_MANAGER, LOCALE_COMPONENT_PKP_MANAGER));
 		parent::setupTemplate();
 	}
 }

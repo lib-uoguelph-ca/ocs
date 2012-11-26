@@ -3,7 +3,7 @@
 /**
  * @file SubmissionReviewHandler.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionReviewHandler
@@ -127,7 +127,7 @@ class SubmissionReviewHandler extends ReviewerHandler {
 		$reviewerSubmission =& $this->submission;
 
 		$this->setupTemplate(true, $paperId, $reviewId);
-		Locale::requireComponents(array(LOCALE_COMPONENT_OCS_AUTHOR)); // author.submit.agencies
+		AppLocale::requireComponents(array(LOCALE_COMPONENT_OCS_AUTHOR)); // author.submit.agencies
 
 		ReviewerAction::viewMetadata($reviewerSubmission, ROLE_ID_REVIEWER);
 	}

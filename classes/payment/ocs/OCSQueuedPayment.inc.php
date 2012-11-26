@@ -3,7 +3,7 @@
 /**
  * @file classes/payment/ocs/OCSQueuedPayment.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class OCSQueuedPayment
@@ -54,7 +54,7 @@ class OCSQueuedPayment extends QueuedPayment {
 	function getName() {
 		switch ($this->type) {
 			case QUEUED_PAYMENT_TYPE_REGISTRATION:
-				return Locale::translate('schedConf.registration');
+				return __('schedConf.registration');
 		}
 	}
 
@@ -86,9 +86,9 @@ class OCSQueuedPayment extends QueuedPayment {
 					$registrationType?$registrationType->getSchedConfId():0
 				);
 
-				return Locale::translate('payment.type.conferenceRegistration', array(
-					'schedConfTitle' => ($schedConf?$schedConf->getFullTitle():Locale::translate('common.none')),
-					'registrationTypeName' => ($registrationType?$registrationType->getRegistrationTypeName():Locale::translate('common.none')),
+				return __('payment.type.conferenceRegistration', array(
+					'schedConfTitle' => ($schedConf?$schedConf->getFullTitle():__('common.none')),
+					'registrationTypeName' => ($registrationType?$registrationType->getRegistrationTypeName():__('common.none')),
 				)) . $options;
 		}
 	}

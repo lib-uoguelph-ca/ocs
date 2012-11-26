@@ -3,7 +3,7 @@
 /**
  * @file PaperMailTemplate.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PaperMailTemplate
@@ -12,8 +12,6 @@
  * @brief Subclass of MailTemplate for sending emails related to papers.
  * This allows for paper-specific functionality like logging, etc.
  */
-
-//$Id$
 
 import('mail.MailTemplate');
 import('paper.log.PaperEmailLogEntry'); // Bring in log constants
@@ -47,10 +45,11 @@ class PaperMailTemplate extends MailTemplate {
 	 * @param $conference object optional
 	 * @param $schedConf object optional
 	 * @param $includeSignature boolean optional
+	 * @param $ignorePostedData boolean optional
 	 * @see MailTemplate::MailTemplate()
 	 */
-	function PaperMailTemplate($paper, $emailKey = null, $locale = null, $enableAttachments = null, $conference = null, $schedConf = null, $includeSignature = true) {
-		parent::MailTemplate($emailKey, $locale, $enableAttachments, $conference, $schedConf, $includeSignature);
+	function PaperMailTemplate($paper, $emailKey = null, $locale = null, $enableAttachments = null, $conference = null, $schedConf = null, $includeSignature = true, $ignorePostedData = false) {
+		parent::MailTemplate($emailKey, $locale, $enableAttachments, $conference, $schedConf, $includeSignature, $ignorePostedData);
 		$this->paper = $paper;
 	}
 

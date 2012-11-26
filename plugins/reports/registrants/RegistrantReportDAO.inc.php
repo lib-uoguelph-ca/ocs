@@ -3,7 +3,7 @@
 /**
  * @file RegistrantReportDAO.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  * 
  * @class RegistrantReportDAO
@@ -27,8 +27,8 @@ class RegistrantReportDAO extends DAO {
 	 * @return array
 	 */
 	function getRegistrantReport($conferenceId, $schedConfId) {
-		$primaryLocale = Locale::getPrimaryLocale();
-		$locale = Locale::getLocale();
+		$primaryLocale = AppLocale::getPrimaryLocale();
+		$locale = AppLocale::getLocale();
 
 		$result =& $this->retrieve(
 			'SELECT

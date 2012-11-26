@@ -7,7 +7,7 @@
 /**
  * @file CreateReviewerForm.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CreateReviewerForm
@@ -149,7 +149,7 @@ class CreateReviewerForm extends Form {
 
 		$locales = array();
 		foreach ($this->getData('userLocales') as $locale) {
-			if (Locale::isLocaleValid($locale) && in_array($locale, $availableLocales)) {
+			if (AppLocale::isLocaleValid($locale) && in_array($locale, $availableLocales)) {
 				array_push($locales, $locale);
 			}
 		}

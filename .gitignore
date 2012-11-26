@@ -6,6 +6,8 @@ files
 .buildpath
 .htaccess
 *.patch
+*.orig
+*.rej
 
 #Misc Files
 bug6896_single-day-conferences-display-only-start-date.diff

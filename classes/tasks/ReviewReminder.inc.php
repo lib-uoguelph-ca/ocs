@@ -3,7 +3,7 @@
 /**
  * @file ReviewReminder.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewReminder
@@ -39,7 +39,7 @@ class ReviewReminder extends ScheduledTask {
 
 		$reviewerAccessKeysEnabled = $schedConf->getSetting('reviewerAccessKeysEnabled');
 
-		$email = new PaperMailTemplate($paper, $reviewerAccessKeysEnabled?'REVIEW_REMIND_AUTO_ONECLICK':'REVIEW_REMIND_AUTO', null, false, $conference, $schedConf);
+		$email = new PaperMailTemplate($paper, $reviewerAccessKeysEnabled?'REVIEW_REMIND_AUTO_ONECLICK':'REVIEW_REMIND_AUTO', $conference->getPrimaryLocale(), false, $conference, $schedConf);
 		$email->setConference($conference);
 		$email->setSchedConf($schedConf);
 
@@ -61,7 +61,7 @@ class ReviewReminder extends ScheduledTask {
 			// Key lifetime is the typical review period plus four weeks
 			if ($schedConf->getSetting('reviewDeadlineType') == REVIEW_DEADLINE_TYPE_ABSOLUTE) {
 				// Get number of days from now until review deadline date
-				$reviewDeadlineDate = strtotime($schedConf->getSetting('numWeeksPerReviewAbsolute'));
+				$reviewDeadlineDate = $schedConf->getSetting('numWeeksPerReviewAbsolute');
 				$daysDiff = ($reviewDeadlineDate - strtotime(date("Y-m-d"))) / (60 * 60 * 24);
 				$keyLifetime = (round($daysDiff / 7) + 4) * 7;
 			} elseif ($schedConf->getSetting('reviewDeadlineType') == REVIEW_DEADLINE_TYPE_RELATIVE) {

@@ -3,7 +3,7 @@
 /**
  * @file ConferenceSiteSettingsForm.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ConferenceSiteSettingsForm
@@ -150,7 +150,7 @@ class ConferenceSiteSettingsForm extends Form {
 			// Install default conference settings
 			$conferenceSettingsDao =& DAORegistry::getDAO('ConferenceSettingsDAO');
 			$titles = $this->getData('title');
-			Locale::requireComponents(array(LOCALE_COMPONENT_OCS_DEFAULT));
+			AppLocale::requireComponents(array(LOCALE_COMPONENT_OCS_DEFAULT));
 			$conferenceSettingsDao->installSettings($conferenceId, Config::getVar('general', 'registry_dir') . '/conferenceSettings.xml', array(
 				'privacyStatementUrl' => Request::url($this->getData('conferencePath'), 'index', 'about', 'submissions', null, null, 'privacyStatement'),
 				'loginUrl' => Request::url('index', 'index', 'login'),

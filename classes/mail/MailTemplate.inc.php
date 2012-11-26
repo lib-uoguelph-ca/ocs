@@ -3,7 +3,7 @@
 /**
  * @file MailTemplate.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class MailTemplate
@@ -11,8 +11,6 @@
  *
  * @brief Subclass of PKPMailTemplate for mailing a template email.
  */
-
-// $Id$
 
 
 import('mail.PKPMailTemplate');
@@ -29,8 +27,9 @@ class MailTemplate extends PKPMailTemplate {
 	 * @param $conference object optional The conference this message relates to
 	 * @param $schedConf object optional The scheduled conference this message relates to
 	 * @param $includeSignature boolean optional
+	 * @param $ignorePostedData boolean optional
 	 */
-	function MailTemplate($emailKey = null, $locale = null, $enableAttachments = null, $conference = null, $schedConf = null, $includeSignature = true) {
+	function MailTemplate($emailKey = null, $locale = null, $enableAttachments = null, $conference = null, $schedConf = null, $includeSignature = true, $ignorePostedData = false) {
 		parent::PKPMailTemplate($emailKey, $locale, $enableAttachments, $includeSignature);
 
 		// If a conference wasn't specified, use the current request.
@@ -49,7 +48,7 @@ class MailTemplate extends PKPMailTemplate {
 			if (!empty($userSig)) $userSig = "\n" . $userSig;
 		}
 
-		if (isset($emailTemplate) && (Request::getUserVar('subject')==null || Request::getUserVar('body')==null)) {
+		if (isset($emailTemplate) && ($ignorePostedData || (Request::getUserVar('subject')==null && Request::getUserVar('body')==null))) {
 			$this->setSubject($emailTemplate->getSubject());
 			$this->setBody($emailTemplate->getBody() . $userSig);
 			$this->enabled = $emailTemplate->getEnabled();

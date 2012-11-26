@@ -82,7 +82,7 @@ class PKPApplication {
 		import('plugins.PluginRegistry');
 		import('plugins.HookRegistry');
 
-		import('i18n.Locale');
+		import('i18n.AppLocale');
 
 		String::init();
 		set_error_handler(array($this, 'errorHandler'));
@@ -401,7 +401,7 @@ class PKPApplication {
 		}
 
 		static $dbServerInfo;
-		if (!isset($dbServerInfo)) {
+		if (!isset($dbServerInfo) && Config::getVar('general', 'installed')) {
 			$dbconn =& DBConnection::getConn();
 			$dbServerInfo = $dbconn->ServerInfo();
 		}
@@ -411,7 +411,7 @@ class PKPApplication {
 		$message[] = "   PHP Version: " . Core::serverPHPVersion();
 		$message[] = "   Apache Version: " . (function_exists('apache_get_version') ? apache_get_version() : 'N/A');
 		$message[] = "   DB Driver: " . Config::getVar('database', 'driver');
-		$message[] = "   DB server version: " . (empty($dbServerInfo['description']) ? $dbServerInfo['version'] : $dbServerInfo['description']);
+		if (isset($dbServerInfo)) $message[] = "   DB server version: " . (empty($dbServerInfo['description']) ? $dbServerInfo['version'] : $dbServerInfo['description']);
 
 		return implode("\n", $message);
 	}

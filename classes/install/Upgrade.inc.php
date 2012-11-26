@@ -3,7 +3,7 @@
 /**
  * @file Upgrade.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Upgrade
@@ -153,7 +153,7 @@ class Upgrade extends Installer {
 
 			if ($schedConfId !== $lastSchedConfId) {
 				// Create a default building
-				$defaultText = Locale::translate('common.default');
+				$defaultText = __('common.default');
 				$building = new Building();
 				$building->setSchedConfId($schedConfId);
 				$building->setName($defaultText, $locale);
@@ -484,7 +484,7 @@ class Upgrade extends Installer {
 			$locales[] = $conference->getPrimaryLocale();
 			$locales = array_unique($locales);
 
-			foreach ($locales as $locale) Locale::requireComponents(array(LOCALE_COMPONENT_OCS_DEFAULT), $locale);
+			foreach ($locales as $locale) AppLocale::requireComponents(array(LOCALE_COMPONENT_OCS_DEFAULT), $locale);
 
 			$schedConfs =& $schedConfDao->getSchedConfsByConferenceId($conference->getId());
 			while ($schedConf =& $schedConfs->next()) {
@@ -496,8 +496,8 @@ class Upgrade extends Installer {
 				if ($allowIndividualSubmissions) {
 					$paperTypeEntry =& $paperTypeEntryDao->newDataObject();
 					foreach ($locales as $locale) {
-						$paperTypeEntry->setName(Locale::translate('default.paperType.individual.name', array(), $locale), $locale);
-						$paperTypeEntry->setDescription(Locale::translate('default.paperType.individual.description', array(), $locale), $locale);
+						$paperTypeEntry->setName(__('default.paperType.individual.name', array(), $locale), $locale);
+						$paperTypeEntry->setDescription(__('default.paperType.individual.description', array(), $locale), $locale);
 					}
 					$paperTypeEntry->setControlledVocabId($paperType->getId());
 					$paperTypeEntryDao->insertObject($paperTypeEntry);
@@ -517,8 +517,8 @@ class Upgrade extends Installer {
 				if ($allowPanelSubmissions) {
 					$paperTypeEntry =& $paperTypeEntryDao->newDataObject();
 					foreach ($locales as $locale) {
-						$paperTypeEntry->setName(Locale::translate('default.paperType.panel.name', array(), $locale), $locale);
-						$paperTypeEntry->setDescription(Locale::translate('default.paperType.panel.description', array(), $locale), $locale);
+						$paperTypeEntry->setName(__('default.paperType.panel.name', array(), $locale), $locale);
+						$paperTypeEntry->setDescription(__('default.paperType.panel.description', array(), $locale), $locale);
 					}
 					$paperTypeEntry->setControlledVocabId($paperType->getId());
 					$paperTypeEntryDao->insertObject($paperTypeEntry);

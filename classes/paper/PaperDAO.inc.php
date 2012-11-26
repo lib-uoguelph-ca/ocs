@@ -3,7 +3,7 @@
 /**
  * @file PaperDAO.inc.php
  *
- * Copyright (c) 2000-2011 John Willinsky
+ * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PaperDAO
@@ -61,8 +61,8 @@ class PaperDAO extends DAO {
 	 * @return Paper
 	 */
 	function &getPaper($paperId) {
-		$primaryLocale = Locale::getPrimaryLocale();
-		$locale = Locale::getLocale();
+		$primaryLocale = AppLocale::getPrimaryLocale();
+		$locale = AppLocale::getLocale();
 		$params = array(
 			'title',
 			$primaryLocale,
@@ -385,8 +385,8 @@ class PaperDAO extends DAO {
 	 * @return DAOResultFactory containing matching Papers
 	 */
 	function &getPapersBySchedConfId($schedConfId, $trackId = null) {
-		$primaryLocale = Locale::getPrimaryLocale();
-		$locale = Locale::getLocale();
+		$primaryLocale = AppLocale::getPrimaryLocale();
+		$locale = AppLocale::getLocale();
 
 		$params = array(
 			'title',
@@ -442,8 +442,8 @@ class PaperDAO extends DAO {
 	 * @return array Papers
 	 */
 	function &getPapersByUserId($userId, $schedConfId = null) {
-		$primaryLocale = Locale::getPrimaryLocale();
-		$locale = Locale::getLocale();
+		$primaryLocale = AppLocale::getPrimaryLocale();
+		$locale = AppLocale::getLocale();
 
 		$params = array(
 			'title',
